@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Crumb | Artisan Bakery</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #8B5A2B; /* Bread Crust Brown */
+            --secondary-color: #D4A373; /* Golden Crust */
+            --bg-color: #FAF3E0; /* Cream */
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Sections General */
+        section {
+            padding: 4rem 5%;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .item-details {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .item-details h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .price {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for this demo */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">The Golden Crumb</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <h1>Freshly Baked Every Morning</h1>
+        <p>Artisan sourdough, flaky croissants, and custom cakes made with love and the finest ingredients.</p>
+        <a href="#menu" class="btn">View Our Menu</a>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Favorites</h2>
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Croissant">
+                <div class="item-details">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, golden, and buttery perfection.</p>
+                    <span class="price">$3.50</span>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1585476644321-b976214b606d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sourdough">
+                <div class="item-details">
+                    <h3>Artisan Sourdough</h3>
+                    <p>Wild yeast fermented for 48 hours.</p>
+                    <span class="price">$8.00</span>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cake">
+                <div class="item-details">
+                    <h3>Chocolate Fudge Cake</h3>
+                    <p>Rich dark chocolate layers with ganache.</p>
+                    <span class="price">$4.50</span>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Muffin">
+                <div class="item-details">
+                    <h3>Blueberry Muffin</h3>
